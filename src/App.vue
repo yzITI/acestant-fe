@@ -1,19 +1,21 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png" />
-  <HelloWorld msg="Hello Vue 3 + Vite" />
+  <router-view></router-view>
 </template>
 
 <script setup>
-import HelloWorld from './components/HelloWorld.vue'
 </script>
 
 <style>
+* { outline: none; user-select: none; }
+.swal2-modal { background: #444; }
+.swal2-title { color: white; }
+.swal2-content { color: white; }
+body {
+  margin: 0;
+  background-color: #232425;
+  color: white;
+}
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+  font-family: sans-serif;
 }
 </style>
