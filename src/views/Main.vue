@@ -1,14 +1,16 @@
 <template>
   <div class="main">
-    <bar></bar>
-    <handler></handler>
+    <div class="float">
+      <bar></bar>
+      <handler></handler>
+    </div>
     <h1>List</h1>
-    <list :data="daemon.state.list"></list>
+    <list :data="data"></list>
   </div>
 </template>
 
 <script setup>
-import daemon from '../daemon'
+import { data } from '../daemon/state.js'
 import List from '../components/List.vue'
 import Bar from '../components/Bar.vue'
 import Handler from '../modules/Handler.vue'
@@ -17,5 +19,11 @@ import Handler from '../modules/Handler.vue'
 <style scoped>
 div.main {
   padding: 60px 5% 20px;
+}
+div.float {
+  position: fixed;
+  top: 0;
+  width: 90%;
+  padding: 20px 0;
 }
 </style>

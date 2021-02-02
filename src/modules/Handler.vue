@@ -1,13 +1,21 @@
 <template>
-  <reminder v-if="popup === 'reminder'"></reminder>
+  <div class="handler">
+    <reminder v-if="key === 'reminder'"></reminder>
+  </div>
 </template>
 
 <script setup>
-import { ref } from 'vue'
+import { computed } from 'vue'
+import { input } from '../daemon/state.js'
 import Reminder from './Reminder/Handler.vue'
-const popup = ref('')
 
-window.show = com => {
-  popup.value = com
-}
+const key = computed(() => input.value.toLowerCase())
 </script>
+
+<style scoped>
+div.handler {
+  position: relative;
+  background-color: #444;
+  border-radius: 10px;
+}
+</style>
