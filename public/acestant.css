@@ -1,0 +1,28 @@
+* { outline: none; user-select: none; }
+.swal2-modal { background: #444; }
+.swal2-title { color: white; }
+.swal2-content { color: white; }
+html {
+  overflow: auto;
+}
+body {
+  margin: 0;
+  background-color: #232425;
+  color: white;
+  min-height: 100vh;
+}
+
+input.underline {
+  background: transparent;
+  color: white;
+  font-weight: bold;
+  border: 2px solid #aaa;
+  border-style: none none solid none;
+  padding: 3px 10px;
+  margin: 5px 5px;
+  transition: all 0.5s ease;
+}
+
+input.underline:focus {
+  border-color: white;
+}

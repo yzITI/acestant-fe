@@ -12,7 +12,7 @@
 <script setup>
 import { computed, ref } from 'vue'
 import List from './List.vue'
-import { input } from '../daemon/state.js'
+import { input } from '../state.js'
 const focus = ref(false)
 
 const barStyle = computed(() => (input.value || focus.value) ? '' : 'opacity: 0.4;')

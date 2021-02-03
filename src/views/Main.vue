@@ -4,13 +4,13 @@
       <bar></bar>
       <handler></handler>
     </div>
-    <h1>List</h1>
+    <h1>Acestant</h1>
     <list :data="data"></list>
   </div>
 </template>
 
 <script setup>
-import { data } from '../daemon/state.js'
+import { data } from '../state.js'
 import List from '../components/List.vue'
 import Bar from '../components/Bar.vue'
 import Handler from '../modules/Handler.vue'
