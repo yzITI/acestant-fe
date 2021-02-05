@@ -1,14 +1,20 @@
 # Acestant Frontend
 
-## Modules
+## Model
 
 ```js
-Interface {
-  // will be poped up when triggered by user
-  handler: Component, 
-  // will be called by daemon, return list
-  check: function
+Event {
+  id: String, // random string
+  name: String, // event name
+  label: String, // event type
+  detail: String, // description
+  time: Number, // timestamp in second
+  pieces: [Piece] // list of pieces
+}
+
+Piece {
+  T: Number, // relative time in second
+  L: Number, // time length in second
+  C: String // Comment
 }
 ```
-
-- reminder

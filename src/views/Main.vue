@@ -2,7 +2,7 @@
   <div class="main">
     <div class="float">
       <bar></bar>
-      <handler></handler>
+      <event v-if="event || input.toLowerCase() === 'event'"></event>
     </div>
     <h1>Acestant</h1>
     <list :data="data"></list>
@@ -10,10 +10,10 @@
 </template>
 
 <script setup>
-import { data } from '../state.js'
+import { input, event, data } from '../state.js'
 import List from '../components/List.vue'
 import Bar from '../components/Bar.vue'
-import Handler from '../modules/Handler.vue'
+import Event from '../components/Event.vue'
 </script>
 
 <style scoped>

@@ -10,11 +10,11 @@
 </template>
 
 <script setup>
-import { computed, ref } from 'vue'
+import { computed, ref, watch } from 'vue'
 import List from './List.vue'
 import { input } from '../state.js'
-const focus = ref(false)
 
+const focus = ref(false)
 const barStyle = computed(() => (input.value || focus.value) ? '' : 'opacity: 0.4;')
 </script>
 
