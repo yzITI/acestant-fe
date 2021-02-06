@@ -11,34 +11,52 @@
       Time
       <input v-model="e.timeString" placeholder="Reminder Time" class="underline">
     </p>
+    <hr>
+    <flow :event="ef" :pps="1" style="left: 50%;"></flow>
+    <div style="margin-top: 65px;"></div>
+    <div v-for="(p, i) in e.pieces" :key="i">
+      <input v-model="p.C" placeholder="C" class="underline">
+      <input v-model="p.T" placeholder="T" class="underline">
+      <input v-model="p.L" placeholder="L" class="underline">
+    </div>
+    <button class="label" @click="addPiece">Add Piece</button>
   </div>
 </template>
 
 <script setup>
 import { reactive, computed } from 'vue'
 import { data, event, input } from '../state.js'
+import Flow from './Flow.vue'
 
 const e = reactive({
   id: Math.random().toString().substr(2),
   name: '',
   timeString: moment().format('YYYY-MM-DD HH:mm:ss'),
-  time: computed(() => moment(e.timeString).unix())
+  pieces: [{ C: '', T: 0, L: 0 }]
 })
+
+const ef = computed(() => ({
+  id: e.id,
+  name: e.name,
+  time: moment(e.timeString).unix(),
+  pieces: e.pieces
+}))
 
 const showAdd = computed(() => e.name && e.timeString && !event.value)
 const add = () => {
-  data.value[e.id] = {
-    name: e.name,
-    time: e.time,
-    pieces: [{ T: 0, L: 0 }]
-  }
+  data.value[ef.id] = ef
   input.value = ''
   event.value = null
+}
+
+const addPiece = () => {
+  e.pieces.push({ C: '', T: 0, L: 0 })
 }
 </script>
 
 <style scoped>
 div.event {
+  position: relative;
   background-color: #444;
   border-radius: 10px;
   margin: 20px 0;

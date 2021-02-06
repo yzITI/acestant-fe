@@ -6,7 +6,7 @@
 Event {
   id: String, // random string
   name: String, // event name
-  label: String, // event type
+  label: [String], // labels
   detail: String, // description
   time: Number, // timestamp in second
   pieces: [Piece] // list of pieces
