@@ -1,7 +1,7 @@
 <template>
-  <div v-for="(e, i) in data" :key="i + r">
-    <h3>{{ e.name }}</h3>
-    <p>{{ timeString(e.time) }}</p>
+  <div v-for="(o, i) in data" :key="i + r">
+    <h3>{{ o.name }}</h3>
+    <p>{{ timeString(o.time) }}</p>
   </div>
 </template>
 

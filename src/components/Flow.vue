@@ -1,15 +1,15 @@
 <template>
   <div class="flow">
-    <div class="name">| {{ event.name }}</div>
-    <div v-for="(p, i) in event.pieces" :key="i"
-      class="pieces" :style="pStyle(p)"></div>
+    <div class="name">| {{ object.name }}</div>
+    <div v-for="(p, i) in object.events" :key="i"
+      class="events" :style="pStyle(p)"></div>
   </div>
 </template>
 
 <script setup>
 import { defineProps, computed, ref } from 'vue'
 // pps: pixel per second
-const props = defineProps(['event', 'pps'])
+const props = defineProps(['object', 'pps'])
 
 const pStyle = (p) => {
   if (!p.L) return `top: 25px; height: 20px; width: 20px; left: ${props.pps * p.T - 10}px;`

@@ -4,4 +4,4 @@ export const input = ref('')
 
 export const data = ref({})
 
-export const event = ref(null)
+export const object = ref(null)
