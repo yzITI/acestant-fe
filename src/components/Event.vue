@@ -29,14 +29,14 @@ import { data, event, input } from '../state.js'
 import Flow from './Flow.vue'
 
 const e = reactive({
-  id: Math.random().toString().substr(2),
+  id: null,
   name: '',
   timeString: moment().format('YYYY-MM-DD HH:mm:ss'),
   pieces: [{ C: '', T: 0, L: 0 }]
 })
 
 const ef = computed(() => ({
-  id: e.id,
+  id: e.id || Date.now().toString(),
   name: e.name,
   time: moment(e.timeString).unix(),
   pieces: e.pieces
@@ -44,7 +44,7 @@ const ef = computed(() => ({
 
 const showAdd = computed(() => e.name && e.timeString && !event.value)
 const add = () => {
-  data.value[ef.id] = ef
+  data.value[ef.value.id] = ef.value
   input.value = ''
   event.value = null
 }
