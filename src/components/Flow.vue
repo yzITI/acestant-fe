@@ -1,8 +1,8 @@
 <template>
   <div class="flow">
     <div class="name">| {{ object.name }}</div>
-    <div v-for="(p, i) in object.events" :key="i"
-      class="events" :style="pStyle(p)"></div>
+    <div v-for="(e, i) in object.events" :key="i"
+      class="event" :style="eStyle(e)"></div>
   </div>
 </template>
 
@@ -11,15 +11,16 @@ import { defineProps, computed, ref } from 'vue'
 // pps: pixel per second
 const props = defineProps(['object', 'pps'])
 
-const pStyle = (p) => {
-  if (!p.L) return `top: 25px; height: 20px; width: 20px; left: ${props.pps * p.T - 10}px;`
-  else return `top: 30px; height: 10px; width: ${props.pps * p.L}px; left: ${props.pps * p.T}px;`
+const eStyle = (e) => {
+  if (!e.L) return `top: 25px; height: 20px; width: 20px; left: ${props.pps * e.T - 10}px;`
+  else return `top: 30px; height: 10px; width: ${props.pps * e.L}px; left: ${props.pps * e.T}px;`
 }
 </script>
 
 <style scoped>
 div.flow {
   position: absolute;
+  overflow: visible;
 }
 
 div.flow * {
@@ -32,7 +33,7 @@ div.name {
   top: 0;
 }
 
-div.pieces {
+div.event {
   background-color: white;
 }
 </style>

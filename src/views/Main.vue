@@ -2,18 +2,25 @@
   <div class="main">
     <div class="float">
       <bar></bar>
-      <Object v-if="object || input.toLowerCase() === 'object'"></Object>
+      <editor v-if="object || input.toLowerCase() === 'object'"></editor>
     </div>
     <h1>Acestant</h1>
-    <list :data="data"></list>
+    <list :data="data" :r="r"></list>
+    <timeline :data="data" :r="r"></timeline>
   </div>
 </template>
 
 <script setup>
+import { ref } from 'vue'
 import { input, object, data } from '../state.js'
 import List from '../components/List.vue'
 import Bar from '../components/Bar.vue'
-import Object from '../components/Object.vue'
+import Editor from '../components/Editor.vue'
+import Timeline from '../components/Timeline.vue'
+
+const r = ref(1) // global refresh
+setInterval(() => { r.value++ }, 1000)
+
 </script>
 
 <style scoped>

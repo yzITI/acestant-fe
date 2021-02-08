@@ -7,10 +7,7 @@
 
 <script setup>
 import { defineProps, computed, ref } from 'vue'
-defineProps(['data'])
-const r = ref(1)
-setInterval(() => { r.value++ }, 10000)
-
+defineProps(['data', 'r'])
 const timeString = t => {
   const m = moment(t * 1000)
   return `${m.fromNow()} (${m.calendar()})`

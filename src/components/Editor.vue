@@ -12,7 +12,7 @@
       <input v-model="o.timeString" placeholder="Reminder Time" class="underline">
     </p>
     <hr>
-    <flow :object="ojbk" :pps="1" style="left: 50%;"></flow>
+    <flow :object="ojbk" :pps="0.2" style="left: 50%;"></flow>
     <div style="margin-top: 65px;"></div>
     <div v-for="(p, i) in o.events" :key="i">
       <input v-model="p.C" placeholder="C" class="underline">
