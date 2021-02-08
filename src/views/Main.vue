@@ -2,7 +2,7 @@
   <div class="main">
     <div class="float">
       <bar></bar>
-      <event v-if="object || input.toLowerCase() === 'object'"></event>
+      <Object v-if="object || input.toLowerCase() === 'object'"></Object>
     </div>
     <h1>Acestant</h1>
     <list :data="data"></list>
@@ -13,7 +13,7 @@
 import { input, object, data } from '../state.js'
 import List from '../components/List.vue'
 import Bar from '../components/Bar.vue'
-import Event from '../components/Event.vue'
+import Object from '../components/Object.vue'
 </script>
 
 <style scoped>
