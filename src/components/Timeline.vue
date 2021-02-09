@@ -12,8 +12,8 @@ const props = defineProps(['data', 'r'])
 
 const scale = (() => {
   const width = window.innerWidth
-  const start = -600 // T-10min
-  const end = 3600 // T+1h
+  const start = -3600 // T-1h
+  const end = 21600 // T+6h
   const pps = width / (end - start)
   const T0pos = pps * start * (-1)
   return { start, pps, T0pos }
@@ -28,12 +28,9 @@ const oStyle = (o) => {
 
 <style scoped>
 div.timeline {
-  position: fixed;
-  bottom: 0;
-  left: 0;
+  position: relative;
   background-color: #111;
   width: 100%;
-  min-height: 300px;
   overflow-x: hidden;
 }
 

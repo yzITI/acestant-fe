@@ -1,7 +1,8 @@
 <template>
-  <div v-for="(o, i) in data" :key="i + r">
-    <h3>{{ o.name }}</h3>
-    <p>{{ timeString(o.time) }}</p>
+  <div class="list">
+    <div v-for="(o, i) in data" :key="i + r">
+      <div>{{ o.name }} - {{ timeString(o.time) }}</div>
+    </div>
   </div>
 </template>
 
@@ -13,3 +14,13 @@ const timeString = t => {
   return `${m.fromNow()} (${m.calendar()})`
 }
 </script>
+
+<style scoped>
+div.list {
+  overflow-y: auto;
+  overflow-x: hidden;
+  background-color: #666;
+  border-radius: 10px;
+  padding: 10px;
+}
+</style>

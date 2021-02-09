@@ -1,9 +1,8 @@
 <template>
   <div class="bar" :style="barStyle">
-    <input @focus="focus = true" @blur="focus = false" v-model="input" placeholder="Search Acestant">
+    <input @focus="focus = true" @blur="focus = false" v-model="input" placeholder="Command">
     <transition name="fade">
       <div v-if="input">
-        <list></list>
       </div>
     </transition>
   </div>

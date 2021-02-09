@@ -1,7 +1,7 @@
 <template>
-  <div class="object">
+  <div class="editor">
     <div class="title">
-      <h2>Object</h2>
+      <h2>Object Editor</h2>
       <button @click="add" v-if="showAdd" class="label">Add</button>
     </div>
     <p>
@@ -12,7 +12,7 @@
       <input v-model="o.timeString" placeholder="Reminder Time" class="underline">
     </p>
     <hr>
-    <flow :object="ojbk" :pps="0.2" style="left: 50%;"></flow>
+    <flow :object="ojbk" :pps="0.05" style="left: 50%;"></flow>
     <div style="margin-top: 65px;"></div>
     <div v-for="(p, i) in o.events" :key="i">
       <input v-model="p.C" placeholder="C" class="underline">
@@ -55,11 +55,11 @@ const addEvent = () => {
 </script>
 
 <style scoped>
-div.object {
+div.editor {
   position: relative;
   background-color: #444;
   border-radius: 10px;
-  margin: 20px 0;
+  margin: 0.8% 0;
   padding: 10px 4%;
 }
 div.title {
