@@ -1,8 +1,8 @@
 <template>
   <div class="bar" :style="barStyle">
-    <input @focus="focus = true" @blur="focus = false" v-model="input" placeholder="Command">
+    <input @focus="focus = true" @blur="focus = false" v-model="input.cmd" placeholder="Command">
     <transition name="fade">
-      <div v-if="input">
+      <div v-if="input.cmd">
       </div>
     </transition>
   </div>
@@ -14,7 +14,7 @@ import List from './List.vue'
 import { input } from '../state.js'
 
 const focus = ref(false)
-const barStyle = computed(() => (input.value || focus.value) ? '' : 'opacity: 0.4;')
+const barStyle = computed(() => (input.cmd || focus.value) ? '' : 'opacity: 0.4;')
 </script>
 
 <style scoped>

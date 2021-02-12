@@ -1,6 +1,6 @@
 <template>
   <div class="flow">
-    <div class="name">| {{ object.name }}</div>
+    <div class="name" :style="lStyle">| {{ object.name }}</div>
     <div v-for="(e, i) in object.events" :key="i"
       class="event" :style="eStyle(e)"></div>
   </div>
@@ -8,19 +8,24 @@
 
 <script setup>
 import { defineProps, computed, ref } from 'vue'
-// pps: pixel per second
-const props = defineProps(['object', 'pps'])
+import { s2p } from '../utils.js'
+const props = defineProps(['object', 'start'])
+
+const t2p = t => s2p(t + props.object.time - props.start)
 
 const eStyle = (e) => {
-  if (!e.L) return `top: 25px; height: 20px; width: 20px; left: ${props.pps * e.T - 10}px;`
-  else return `top: 30px; height: 10px; width: ${props.pps * e.L}px; left: ${props.pps * e.T}px;`
+  if (!e.L) return `top: 25px; height: 20px; width: 20px; left: calc(${t2p(e.T)}% - 10px);`
+  else return `top: 30px; height: 10px; width: ${s2p(e.L)}%; left: ${t2p(e.T)}%;`
 }
+
+const lStyle = computed(() => `left: calc(${t2p(0)}% - 2px);`)
 </script>
 
 <style scoped>
 div.flow {
   position: absolute;
-  overflow: visible;
+  width: 100%;
+  height: 50px;
 }
 
 div.flow * {
@@ -29,7 +34,6 @@ div.flow * {
 
 div.name {
   white-space: nowrap;
-  left: -2px;
   top: 0;
 }
 

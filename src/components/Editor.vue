@@ -12,7 +12,7 @@
       <input v-model="o.timeString" placeholder="Reminder Time" class="underline">
     </p>
     <hr>
-    <flow :object="ojbk" :pps="0.05" style="left: 50%;"></flow>
+    <flow :object="ojbk" :start="start" style="width: 92%;"></flow>
     <div style="margin-top: 65px;"></div>
     <div v-for="(p, i) in o.events" :key="i">
       <input v-model="p.C" placeholder="C" class="underline">
@@ -25,7 +25,7 @@
 
 <script setup>
 import { reactive, computed } from 'vue'
-import { data, object, input } from '../state.js'
+import { data, input } from '../state.js'
 import Flow from './Flow.vue'
 
 const o = reactive({
@@ -42,11 +42,12 @@ const ojbk = computed(() => ({
   events: o.events
 }))
 
-const showAdd = computed(() => o.name && o.timeString && !object.value)
+const start = computed(() => moment(moment(o.timeString).format('YYYY-MM-DD')).unix())
+
+const showAdd = computed(() => o.name && o.timeString)
 const add = () => {
   data.value[ojbk.value.id] = ojbk.value
-  input.value = ''
-  object.value = null
+  input.cmd = ''
 }
 
 const addEvent = () => {

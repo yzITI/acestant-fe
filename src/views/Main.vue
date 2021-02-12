@@ -2,28 +2,23 @@
   <div class="main">
     <div class="float">
       <bar></bar>
-      <editor v-if="object || input.toLowerCase() === 'object'"></editor>
+      <editor v-if="input.cmd.toLowerCase() === 'object'"></editor>
     </div>
     <div class="content">
       <info></info>
-      <list :data="data" :r="r"></list>
+      <list></list>
     </div>
-    <timeline class="timeline" :data="data" :r="r"></timeline>
+    <timeline class="timeline"></timeline>
   </div>
 </template>
 
 <script setup>
-import { ref } from 'vue'
-import { input, object, data } from '../state.js'
+import { input } from '../state.js'
 import Bar from '../components/Bar.vue'
 import Editor from '../components/Editor.vue'
 import Info from '../components/Info.vue'
 import List from '../components/List.vue'
 import Timeline from '../components/Timeline.vue'
-
-const r = ref(1) // global refresh
-setInterval(() => { r.value++ }, 1000)
-
 </script>
 
 <style scoped>
@@ -44,7 +39,7 @@ div.content {
 }
 
 div.timeline {
-  height: 49%;
+  height: 48.4%;
 }
 
 @media (min-width: 500px) {
