@@ -20,7 +20,6 @@ div.list {
   overflow-y: auto;
   overflow-x: hidden;
   background-color: #666;
-  border-radius: 10px;
   padding: 10px;
 }
 </style>

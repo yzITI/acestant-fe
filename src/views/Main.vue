@@ -1,7 +1,7 @@
 <template>
   <div class="main">
+    <bar></bar>
     <div class="float">
-      <bar></bar>
       <editor v-if="input.cmd.toLowerCase() === 'object'"></editor>
     </div>
     <div class="content">
@@ -23,23 +23,21 @@ import Timeline from '../components/Timeline.vue'
 
 <style scoped>
 div.main {
-  padding-top: 60px;
-  height: calc(100vh - 60px);
+  height: 100vh;
 }
 div.float {
   position: fixed;
-  top: 0;
+  top: 6%;
   width: 98%;
-  padding: 20px 1%;
+  padding: 1% 1%;
 }
 div.content {
-  margin: 1% 1%;
-  height: 48%;
+  height: 54%;
   display: flex;
 }
 
 div.timeline {
-  height: 48.4%;
+  height: 40%;
 }
 
 @media (min-width: 500px) {
@@ -50,11 +48,11 @@ div.timeline {
 
 @media (max-width: 500px) {
   div.timeline {
-    height: 32%;
+    height: 30%;
   }
   div.content {
     flex-direction: column;
-    height: 65%;
+    height: 64%;
   }
   div.content * {
     height: 50%;

@@ -14,22 +14,24 @@ import List from './List.vue'
 import { input } from '../state.js'
 
 const focus = ref(false)
-const barStyle = computed(() => (input.cmd || focus.value) ? '' : 'opacity: 0.4;')
+const barStyle = computed(() => (input.cmd || focus.value) ? '' : 'opacity: 0.7;')
 </script>
 
 <style scoped>
 div.bar {
   width: 100%;
+  height: 6%;
   background-color: white;
   color: black;
-  border-radius: 10px;
   overflow: hidden;
   transition: all 0.5s ease;
 }
 input {
   width: 100%;
-  padding: 10px 20px;
+  height: 100%;
+  padding: 0px 20px;
   border: none;
   font-size: 1.2rem;
+  line-height: 100%;
 }
 </style>
