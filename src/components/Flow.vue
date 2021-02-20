@@ -14,8 +14,8 @@ const props = defineProps(['object', 'start'])
 const t2p = t => s2p(t + props.object.time - props.start)
 
 const eStyle = (e) => {
-  if (!e.L) return `top: 25px; height: 20px; width: 20px; left: calc(${t2p(e.T)}% - 10px);`
-  else return `top: 30px; height: 10px; width: ${s2p(e.L)}%; left: ${t2p(e.T)}%;`
+  if (!e.L) return `top: 25px; height: 20px; width: 20px; left: calc(${t2p(e.T)}% - 10px); opacity: ${e.O};`
+  else return `top: 30px; height: 10px; width: ${s2p(e.L)}%; left: ${t2p(e.T)}%; opacity: ${e.O};`
 }
 
 const lStyle = computed(() => `left: calc(${t2p(0)}% - 2px);`)

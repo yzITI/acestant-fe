@@ -18,6 +18,7 @@
       <input v-model="p.C" placeholder="C" class="underline">
       <input v-model="p.T" placeholder="T" class="underline">
       <input v-model="p.L" placeholder="L" class="underline">
+      <input v-model="p.O" placeholder="O" class="underline">
     </div>
     <button class="label" @click="addEvent">Add Event</button>
   </div>
@@ -32,7 +33,7 @@ const o = reactive({
   id: null,
   name: '',
   timeString: moment().format('YYYY-MM-DD HH:mm:ss'),
-  events: [{ C: '', T: 0, L: 0 }]
+  events: [{ C: '', T: 0, L: 0, O: 1 }]
 })
 
 const ojbk = computed(() => ({
@@ -51,7 +52,7 @@ const add = () => {
 }
 
 const addEvent = () => {
-  o.events.push({ C: '', T: 0, L: 0 })
+  o.events.push({ C: '', T: 0, L: 0, O: 1 })
 }
 </script>
 

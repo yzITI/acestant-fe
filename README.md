@@ -2,19 +2,18 @@
 
 ## Model
 
-```js
-Event {
-  id: String, // random string
-  name: String, // event name
-  label: [String], // labels
-  detail: String, // description
-  time: Number, // timestamp in second
-  pieces: [Piece] // list of pieces
-}
+**Time unit: second**
 
-Piece {
-  T: Number, // relative time in second
-  L: Number, // time length in second
-  C: String // Comment
+```js
+Object {
+  id: String, // random string
+  name: String, // object name
+  label: String, // label
+  detail: String, // description
+  length: Number, // time length
+  fix: Boolean, // isFixed
+  ddl: Number, // ddl timestamp
+  repeat: String, // repeat pattern
+  time: Number // timestamp
 }
 ```
