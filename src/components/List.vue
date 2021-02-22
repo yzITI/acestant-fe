@@ -1,6 +1,6 @@
 <template>
   <div class="list" :key="tick">
-    <div v-for="(o, i) in data">
+    <div v-for="(o, i) in data.future">
       <div>{{ o.name }} - {{ timeString(o.time) }}</div>
     </div>
   </div>
@@ -8,7 +8,7 @@
 
 <script setup>
 import { computed, ref } from 'vue'
-import { data, tick } from '../state.js'
+import { data, tick, input } from '../state.js'
 const timeString = t => {
   const m = moment(t * 1000)
   return `${m.fromNow()} (${m.calendar()})`

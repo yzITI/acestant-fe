@@ -2,11 +2,14 @@
   <div class="info">
     <h1>Acestant</h1>
     <p :key="tick">{{ date() }}</p>
+    <div v-for="(o, i) in data.present">
+      <div>{{ o.name }}</div>
+    </div>
   </div>
 </template>
 
 <script setup>
-import { tick } from '../state.js'
+import { data, tick } from '../state.js'
 const date = () => moment().format('YYYY-MM-DD dddd HH:mm:ss')
 </script>
 

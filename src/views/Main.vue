@@ -32,12 +32,12 @@ div.float {
   padding: 1% 1%;
 }
 div.content {
-  height: 54%;
+  height: 64%;
   display: flex;
 }
 
 div.timeline {
-  height: 40%;
+  height: 30%;
 }
 
 @media (min-width: 500px) {
@@ -48,11 +48,11 @@ div.timeline {
 
 @media (max-width: 500px) {
   div.timeline {
-    height: 30%;
+    height: 20%;
   }
   div.content {
     flex-direction: column;
-    height: 64%;
+    height: 74%;
   }
   div.content * {
     height: 50%;
