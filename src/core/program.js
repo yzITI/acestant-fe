@@ -1,25 +1,34 @@
-import { data, tick } from '../state.js'
+import { data, tick, input } from '../state.js'
 
-function score (id) {
-  const object = data.future[id]
-  const start = object.time, end = object.time + object.length
-  let res = 0
-  for (const i in data.present) {
-    const o = data.present[i]
-    res -= Math.max(o.time + o.length - start, 0)
+function score () {
+  data.future.sort((a, b) => (a.time - b.time || a.length - b.length))
+  const map = {} // id: object
+  for (const o of data.now) map[o.id] = o
+  for (const o of data.future) map[o.id] = o
+  const points = {} // time: [object]
+  const curr = data.now.map(x => x.id) // [id]
+
+  const end = (id) => map[id].time + map[id].length
+  function finish (T) {
+    curr.sort((a, b) => end(a) - end(b))
+    while (curr.length && end(curr[0]) < T) {
+      const id = curr.shift()
+      points[end(id)] = [...curr]
+    }
   }
-  for (const i in data.future) {
-    if (i == id) continue
-    const o = data.future[i]
-    if (!o.time || o.time + o.length <= start || o.time >= end) continue
-    res -= Math.min(o.length, object.length, o.time + o.length - start, end - o.time)
+
+  for (const o of data.future) {
+    finish(o.time)
+    curr.push(o.id)
+    points[o.time] = [...new Set(
+      points[o.time] ? [...points[o.time], ...curr] : [...curr]
+    )]
   }
-  return res
+  finish(99999999999)
+
+  if (input.cmd === 'debug') console.log(points)
 }
 
 export function program () {
-  for (const i in data.future) {
-    let start
-    // here
-  }
+  score()
 }

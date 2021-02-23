@@ -1,4 +1,5 @@
 import { data, input, tick } from '../state.js'
+import { program } from './program.js'
 
 // future -> now, now -> past
 function move () {
@@ -12,5 +13,5 @@ function move () {
 setInterval(() => {
   tick.value = moment().unix()
   move()
-  // program
+  program()
 }, 1000)
