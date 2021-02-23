@@ -2,7 +2,7 @@
   <div class="info">
     <h1>Acestant</h1>
     <p :key="tick">{{ date() }}</p>
-    <div v-for="(o, i) in data.present">
+    <div v-for="(o, i) in data.now">
       <div>{{ o.name }}</div>
     </div>
   </div>

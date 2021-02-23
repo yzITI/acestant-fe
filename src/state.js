@@ -9,7 +9,7 @@ export const input = reactive({
 })
 
 export const data = reactive({
-  past: {},
-  present: {},
-  future: {}
+  past: [],
+  now: [],
+  future: []
 })

@@ -33,10 +33,11 @@ const o = reactive({
 })
 
 // draft
-const showAdd = computed(() => o.name && o.length)
+const showAdd = computed(() => o.name)
 const add = () => {
-  o.time = o.fix ? undefined : moment(o.time).unix()
-  data.future[o.id] = o
+  o.time = o.fix ? moment(o.time).unix() : undefined
+  o.length = Number(o.length)
+  data.future.push(o)
   input.cmd = ''
 }
 </script>
